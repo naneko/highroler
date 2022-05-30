@@ -29,6 +29,7 @@ log.debug("initializing")
 @client.event
 async def on_ready():
     log.info(f'Initialized as {client.user}')
+    await client.change_presence(status=discord.Status.offline)
     log.debug("init db")
     connection = db.open()
     log.debug("session start")
