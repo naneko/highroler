@@ -111,7 +111,12 @@ async def on_member_join(member):
             log.debug(f"--- restoring {roles}")
             await member.add_roles(*roles, reason="restoring roles")
         for channel_id, overwrite in root.users[member.id].overwrites.items():
-            channel = await client.fetch_channel(channel_id)
+            try:
+                channel = await client.fetch_channel(channel_id)
+            except discord.NotFound:
+                log.info(f'Channel {channel_id} was not found while restoring permissions for {member}')
+                #  TODO: if it turns out its because a channel was deleted, then delete from database
+                continue
             log.debug(f"--- restoring perms {member} @ {channel} ({channel.id}): {overwrite}")
             await channel.set_permissions(member, overwrite=overwrite, reason="restoring access")
     else:
