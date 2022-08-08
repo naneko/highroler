@@ -27,17 +27,17 @@ python-versions = ">=3.5.3"
 
 [[package]]
 name = "attrs"
-version = "21.4.0"
+version = "22.1.0"
 description = "Classes Without Boilerplate"
 category = "main"
 optional = false
-python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
+python-versions = ">=3.5"
 
 [package.extras]
-dev = ["coverage[toml] (>=5.0.2)", "hypothesis", "pympler", "pytest (>=4.3.0)", "six", "mypy", "pytest-mypy-plugins", "zope.interface", "furo", "sphinx", "sphinx-notfound-page", "pre-commit", "cloudpickle"]
+dev = ["coverage[toml] (>=5.0.2)", "hypothesis", "pympler", "pytest (>=4.3.0)", "mypy (>=0.900,!=0.940)", "pytest-mypy-plugins", "zope.interface", "furo", "sphinx", "sphinx-notfound-page", "pre-commit", "cloudpickle"]
 docs = ["furo", "sphinx", "zope.interface", "sphinx-notfound-page"]
-tests = ["coverage[toml] (>=5.0.2)", "hypothesis", "pympler", "pytest (>=4.3.0)", "six", "mypy", "pytest-mypy-plugins", "zope.interface", "cloudpickle"]
-tests_no_zope = ["coverage[toml] (>=5.0.2)", "hypothesis", "pympler", "pytest (>=4.3.0)", "six", "mypy", "pytest-mypy-plugins", "cloudpickle"]
+tests = ["coverage[toml] (>=5.0.2)", "hypothesis", "pympler", "pytest (>=4.3.0)", "mypy (>=0.900,!=0.940)", "pytest-mypy-plugins", "zope.interface", "cloudpickle"]
+tests_no_zope = ["coverage[toml] (>=5.0.2)", "hypothesis", "pympler", "pytest (>=4.3.0)", "mypy (>=0.900,!=0.940)", "pytest-mypy-plugins", "cloudpickle"]
 
 [[package]]
 name = "btrees"
@@ -58,7 +58,7 @@ test = ["persistent (>=4.4.3)", "transaction", "zope.testrunner"]
 
 [[package]]
 name = "cffi"
-version = "1.15.0"
+version = "1.15.1"
 description = "Foreign Function Interface for Python calling C code."
 category = "main"
 optional = false
@@ -91,6 +91,14 @@ docs = ["sphinx (==3.0.3)", "sphinxcontrib-trio (==1.1.2)", "sphinxcontrib-websu
 voice = ["PyNaCl (>=1.3.0,<1.5)"]
 
 [[package]]
+name = "docutils"
+version = "0.19"
+description = "Docutils -- Python Documentation Utilities"
+category = "dev"
+optional = false
+python-versions = ">=3.7"
+
+[[package]]
 name = "idna"
 version = "3.3"
 description = "Internationalized Domain Names in Applications (IDNA)"
@@ -105,6 +113,14 @@ description = "multidict implementation"
 category = "main"
 optional = false
 python-versions = ">=3.7"
+
+[[package]]
+name = "multipart"
+version = "0.2.4"
+description = "Parser for multipart/form-data."
+category = "dev"
+optional = false
+python-versions = "*"
 
 [[package]]
 name = "persistent"
@@ -142,6 +158,33 @@ python-versions = ">=3.5"
 cli = ["click (>=5.0)"]
 
 [[package]]
+name = "python-gettext"
+version = "4.0"
+description = "Python Gettext po to mo file compiler."
+category = "dev"
+optional = false
+python-versions = "*"
+
+[[package]]
+name = "pytz"
+version = "2022.1"
+description = "World timezone definitions, modern and historical"
+category = "dev"
+optional = false
+python-versions = "*"
+
+[[package]]
+name = "restrictedpython"
+version = "5.0"
+description = "RestrictedPython is a defined subset of the Python language which allows to provide a program input into a trusted environment."
+category = "dev"
+optional = false
+python-versions = "*"
+
+[package.extras]
+test = ["pytest", "pytest-mock"]
+
+[[package]]
 name = "six"
 version = "1.16.0"
 description = "Python 2 and 3 compatibility utilities"
@@ -167,7 +210,7 @@ testing = ["nose", "coverage", "mock"]
 
 [[package]]
 name = "typing-extensions"
-version = "4.2.0"
+version = "4.3.0"
 description = "Backported and Experimental Type Hints for Python 3.7+"
 category = "main"
 optional = false
@@ -175,11 +218,11 @@ python-versions = ">=3.7"
 
 [[package]]
 name = "yarl"
-version = "1.7.2"
+version = "1.8.1"
 description = "Yet another URL library"
 category = "main"
 optional = false
-python-versions = ">=3.6"
+python-versions = ">=3.7"
 
 [package.dependencies]
 idna = ">=2.0"
@@ -209,6 +252,44 @@ docs = ["sphinxcontrib-programoutput"]
 test = ["docutils", "manuel", "zope.exceptions", "zope.testrunner"]
 
 [[package]]
+name = "zdaemon"
+version = "4.3"
+description = "Daemon process control library and tools for Unix-based systems"
+category = "dev"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+ZConfig = "*"
+
+[package.extras]
+test = ["zope.testing", "zope.testrunner", "manuel", "mock", "zc.customdoctests"]
+
+[[package]]
+name = "zeo"
+version = "5.3.0"
+description = "ZEO - Single-server client-server database server for ZODB"
+category = "dev"
+optional = false
+python-versions = ">=2.7.9,!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*"
+
+[package.dependencies]
+persistent = ">=4.1.0"
+six = "*"
+transaction = ">=2.0.3"
+"zc.lockfile" = "*"
+ZConfig = "*"
+zdaemon = "*"
+ZODB = ">=5.1.1"
+"zope.interface" = "*"
+
+[package.extras]
+docs = ["sphinx", "repoze.sphinx.autointerface", "sphinx-rtd-theme"]
+msgpack = ["msgpack-python"]
+test = ["ZODB (>=5.5.1)", "zope.testing", "manuel", "random2", "mock", "msgpack (<1)", "zope.testrunner"]
+uvloop = ["uvloop (>=0.5.1)"]
+
+[[package]]
 name = "zodb"
 version = "5.7.0"
 description = "ZODB, a Python object-oriented database"
@@ -231,6 +312,45 @@ docs = ["sphinx", "zodb", "j1m.sphinxautozconfig", "sphinx-rtd-theme", "sphinxco
 test = ["manuel", "zope.testing", "zope.testrunner (>=4.4.6)", "mock"]
 
 [[package]]
+name = "zodbbrowser"
+version = "0.17.1"
+description = "ZODB browser"
+category = "dev"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+BTrees = "*"
+persistent = "*"
+RestrictedPython = "*"
+transaction = "*"
+ZEO = "*"
+ZODB = "*"
+"zope.app.authentication" = "*"
+"zope.app.component" = "*"
+"zope.app.pagetemplate" = "*"
+"zope.app.publication" = "*"
+"zope.app.server" = "*"
+"zope.app.session" = "*"
+"zope.app.zcmlfiles" = "*"
+"zope.cachedescriptors" = "*"
+"zope.component" = "*"
+"zope.error" = "*"
+"zope.exceptions" = "*"
+"zope.hookable" = "*"
+"zope.interface" = "*"
+"zope.location" = "*"
+"zope.publisher" = "*"
+"zope.security" = "*"
+"zope.securitypolicy" = "*"
+"zope.server" = "*"
+"zope.session" = "*"
+"zope.traversing" = "*"
+
+[package.extras]
+test = ["cssselect", "lxml", "mock", "zope.app.container", "zope.app.folder", "zope.app.testing", "zope.testbrowser (>=5.1)"]
+
+[[package]]
 name = "zodbpickle"
 version = "2.3"
 description = "Fork of Python 2 and 3 pickle module."
@@ -240,6 +360,1204 @@ python-versions = "*"
 
 [package.extras]
 test = ["zope.testrunner"]
+
+[[package]]
+name = "zope.annotation"
+version = "4.7.0"
+description = "Object annotation mechanism"
+category = "dev"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+"zope.component" = "*"
+"zope.interface" = "*"
+"zope.location" = "*"
+"zope.proxy" = "*"
+
+[package.extras]
+btrees = ["btrees", "persistent"]
+docs = ["sphinx", "repoze.sphinx.autointerface", "zope.component", "zope.configuration", "zope.testing", "zope.testrunner"]
+test = ["zope.component", "zope.configuration", "zope.testing", "zope.testrunner"]
+testing = ["zope.component", "zope.configuration", "zope.testing", "zope.testrunner", "nose", "coverage"]
+zcml = ["zope.component", "zope.configuration"]
+
+[[package]]
+name = "zope.app.applicationcontrol"
+version = "4.1.0"
+description = "Zope application control"
+category = "dev"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+ZODB = "*"
+"zope.applicationcontrol" = ">=4.0.1"
+"zope.component" = "*"
+"zope.i18n" = "*"
+"zope.i18nmessageid" = "*"
+"zope.interface" = "*"
+"zope.size" = "*"
+"zope.traversing" = ">=3.7.0"
+
+[package.extras]
+test = ["webtest", "zope.app.appsetup (>=4.0.0)", "zope.app.authentication (>=4.0.0)", "zope.app.basicskin (>=4.0.0)", "zope.app.component (>=4.0.0)", "zope.app.container (>=4.0.0)", "zope.app.locales (>=4.0.0)", "zope.app.pagetemplate (>=4.0.0)", "zope.app.publication (>=4.2.1)", "zope.app.wsgi (>=4.1.0)", "zope.applicationcontrol (>=4.0.1)", "zope.authentication (>=4.2.1)", "zope.annotation (>=4.4.1)", "zope.browser (>=2.1.0)", "zope.browsermenu (>=4.1.1)", "zope.browserpage (>=4.1.0)", "zope.browserresource (>=4.1.0)", "zope.container (>=4.1.0)", "zope.formlib (>=4.3.0)", "zope.i18nmessageid (>=4.1.0)", "zope.interface (>=4.4.0)", "zope.login (>=2.0.0)", "zope.pagetemplate (>=4.2.1)", "zope.password (>=4.2.0)", "zope.pluggableauth (>=2.2.0)", "zope.principalregistry (>=4.0.0)", "zope.publisher (>=4.3.1)", "zope.schema (>=4.4.2)", "zope.securitypolicy (>=4.1.0)", "zope.session (>=4.1.0)", "zope.site (>=4.0.0)", "zope.testbrowser (>=5.2)", "zope.testing", "zope.testrunner"]
+
+[[package]]
+name = "zope.app.appsetup"
+version = "4.2.0"
+description = "Zope app setup helper"
+category = "dev"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+zdaemon = "*"
+ZODB = "*"
+"zope.app.publication" = ">=4.0"
+"zope.component" = ">=3.8.0"
+"zope.configuration" = "*"
+"zope.container" = ">=4.0.0a2"
+"zope.error" = "*"
+"zope.event" = "*"
+"zope.interface" = "*"
+"zope.processlifetime" = "*"
+"zope.security" = ">=4.0.0a2"
+"zope.session" = ">=4.0.0a1"
+"zope.site" = ">=4.0.0a1"
+"zope.traversing" = ">=4.0.0a2"
+
+[package.extras]
+test = ["zope.componentvocabulary (>=2.0.0a1)", "zope.principalregistry (>=4.0.0a1)", "zope.testing (>=3.10)", "zope.testrunner"]
+
+[[package]]
+name = "zope.app.authentication"
+version = "4.0.0"
+description = "Principals and groups management for the pluggable authentication utility"
+category = "dev"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+"zope.app.component" = ">=4.0.0"
+"zope.app.container" = ">=4.0.0"
+"zope.authentication" = "*"
+"zope.component" = "*"
+"zope.container" = "*"
+"zope.dublincore" = "*"
+"zope.event" = "*"
+"zope.exceptions" = "*"
+"zope.formlib" = ">=4.0.2"
+"zope.i18n" = "*"
+"zope.i18nmessageid" = "*"
+"zope.interface" = "*"
+"zope.location" = "*"
+"zope.password" = ">=3.5.1"
+"zope.pluggableauth" = ">=2.2.0"
+"zope.schema" = "*"
+"zope.security" = "*"
+"zope.traversing" = "*"
+
+[package.extras]
+test = ["zope.app.basicskin (>=4.0)", "zope.app.form (>=5.0)", "zope.app.rotterdam (>=4.0)", "zope.app.schema", "zope.app.security (>=4.0)", "zope.app.wsgi", "zope.formlib", "zope.login", "zope.principalannotation", "zope.publisher", "zope.publisher (>=4.3.1)", "zope.securitypolicy", "zope.session", "zope.site", "zope.testbrowser (>=5.2)", "zope.testing", "zope.testrunner"]
+
+[[package]]
+name = "zope.app.basicskin"
+version = "4.0.0"
+description = "Zope ZMI Basic Skin"
+category = "dev"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+"zope.component" = "*"
+"zope.interface" = "*"
+"zope.publisher" = "*"
+
+[package.extras]
+test = ["zope.component", "zope.testrunner"]
+
+[[package]]
+name = "zope.app.broken"
+version = "4.2"
+description = "Zope Broken (ZODB) Object Support"
+category = "dev"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+ZODB = ">=3.10.0a1"
+"zope.annotation" = "*"
+"zope.deferredimport" = "*"
+"zope.interface" = "*"
+"zope.location" = "*"
+"zope.processlifetime" = "*"
+"zope.security" = "*"
+
+[package.extras]
+browser = ["zope.browsermenu", "zope.browserpage", "zope.browserresource"]
+test = ["zope.browsermenu", "zope.browserpage", "zope.browserresource", "zope.configuration", "zope.testing", "zope.testrunner", "mock"]
+
+[[package]]
+name = "zope.app.component"
+version = "4.1.0"
+description = "Local Zope Component Support"
+category = "dev"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+"zope.app.container" = ">=4.0"
+"zope.app.pagetemplate" = ">=4.0"
+"zope.component" = {version = ">=4.3.0", extras = ["hook", "zcml"]}
+"zope.componentvocabulary" = "*"
+"zope.deprecation" = "*"
+"zope.exceptions" = "*"
+"zope.formlib" = "*"
+"zope.i18nmessageid" = "*"
+"zope.interface" = "*"
+"zope.publisher" = ">=4.3.1"
+"zope.schema" = "*"
+"zope.security" = "*"
+"zope.site" = "*"
+"zope.traversing" = "*"
+
+[package.extras]
+test = ["zope.app.appsetup", "zope.app.basicskin (>=4.0)", "zope.app.container[test] (>=4.0)", "zope.app.content", "zope.app.dependable (>=4.0)", "zope.app.http", "zope.app.pagetemplate (>=4.0)", "zope.app.principalannotation", "zope.app.publication", "zope.app.publisher", "zope.app.rotterdam (>=4.0)", "zope.app.schema", "zope.app.testing", "zope.app.wsgi", "zope.applicationcontrol", "zope.browser", "zope.browserresource", "zope.copypastemove", "zope.login", "zope.password", "zope.principalannotation", "zope.principalregistry", "zope.proxy (>=4.2.1)", "zope.securitypolicy", "zope.site", "zope.testbrowser (>=5.2)", "zope.testing", "zope.testrunner"]
+
+[[package]]
+name = "zope.app.container"
+version = "4.0.0"
+description = "Zope Container"
+category = "dev"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+"zope.browser" = "*"
+"zope.browsermenu" = "*"
+"zope.browserpage" = "*"
+"zope.component" = "*"
+"zope.container" = "*"
+"zope.copypastemove" = "*"
+"zope.dublincore" = ">=3.7"
+"zope.event" = "*"
+"zope.exceptions" = "*"
+"zope.i18n" = "*"
+"zope.i18nmessageid" = "*"
+"zope.interface" = "*"
+"zope.lifecycleevent" = "*"
+"zope.location" = "*"
+"zope.publisher" = ">=4.3.1"
+"zope.security" = ">=4.1.0"
+"zope.size" = "*"
+"zope.traversing" = "*"
+
+[package.extras]
+test = ["zope.app.appsetup", "zope.app.basicskin (>=4.0)", "zope.app.content", "zope.app.dependable (>=4.0)", "zope.app.http", "zope.app.pagetemplate (>=4.0)", "zope.app.principalannotation", "zope.app.publication", "zope.app.publisher", "zope.app.security", "zope.app.testing", "zope.app.wsgi", "zope.applicationcontrol", "zope.browser", "zope.browserresource", "zope.copypastemove", "zope.login", "zope.password", "zope.principalannotation", "zope.principalregistry", "zope.proxy (>=4.2.1)", "zope.securitypolicy", "zope.site", "zope.testbrowser (>5)", "zope.testing", "zope.testrunner"]
+
+[[package]]
+name = "zope.app.content"
+version = "4.0.0"
+description = "Zope Content Type"
+category = "dev"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+"zope.componentvocabulary" = "*"
+"zope.interface" = "*"
+"zope.schema" = "*"
+"zope.security" = "*"
+
+[package.extras]
+test = ["zope.configuration", "zope.testing", "zope.testrunner"]
+
+[[package]]
+name = "zope.app.dependable"
+version = "4.1.0"
+description = "Simple Dependency API"
+category = "dev"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+"zope.annotation" = "*"
+"zope.exceptions" = "*"
+"zope.i18nmessageid" = "*"
+"zope.interface" = "*"
+"zope.lifecycleevent" = "*"
+"zope.location" = "*"
+"zope.traversing" = "*"
+
+[package.extras]
+test = ["zope.container", "zope.testing", "zope.testrunner"]
+
+[[package]]
+name = "zope.app.error"
+version = "4.1.0"
+description = "Error reporting utility management UI for Zope3"
+category = "dev"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+"zope.annotation" = "*"
+"zope.component" = "*"
+"zope.error" = "*"
+"zope.publisher" = "*"
+"zope.security" = "*"
+"zope.traversing" = "*"
+
+[package.extras]
+browser = ["zope.browsermenu", "zope.browserpage", "zope.browserresource"]
+test = ["zope.testing", "zope.testrunner", "zope.browserpage", "zope.browsermenu", "zope.browserresource"]
+
+[[package]]
+name = "zope.app.exception"
+version = "4.1.0"
+description = "Zope 3 exception views"
+category = "dev"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+"zope.authentication" = "*"
+"zope.browser" = ">=1.2"
+"zope.browserpage" = ">=3.11.0"
+"zope.component" = "*"
+"zope.interface" = "*"
+"zope.publisher" = ">=3.12"
+"zope.security" = "*"
+
+[package.extras]
+test = ["webtest", "zope.app.appsetup", "zope.app.basicskin (>=4.0)", "zope.app.pagetemplate", "zope.app.publication", "zope.app.wsgi", "zope.browsermenu", "zope.browserresource", "zope.container", "zope.login", "zope.password", "zope.principalregistry", "zope.publisher", "zope.securitypolicy", "zope.site", "zope.testrunner"]
+
+[[package]]
+name = "zope.app.folder"
+version = "4.0.0"
+description = "Folder Content Type for Zope 3"
+category = "dev"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+"zope.app.content" = ">=4.0.0"
+"zope.container" = "*"
+"zope.site" = "*"
+
+[package.extras]
+test = ["zope.app.container", "zope.browsermenu", "zope.browserpage", "zope.browserresource", "zope.configuration", "zope.testing", "zope.testrunner"]
+zcml = ["zope.app.container", "zope.browsermenu", "zope.browserpage", "zope.browserresource"]
+
+[[package]]
+name = "zope.app.form"
+version = "5.1.0"
+description = "The Original Zope 3 Form Framework"
+category = "dev"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+transaction = "*"
+"zope.browser" = ">=2.1"
+"zope.browsermenu" = "*"
+"zope.browserpage" = ">=3.10.1"
+"zope.component" = "*"
+"zope.configuration" = ">=4.1.0"
+"zope.datetime" = "*"
+"zope.exceptions" = "*"
+"zope.formlib" = ">=4.3"
+"zope.i18n" = "*"
+"zope.interface" = "*"
+"zope.proxy" = "*"
+"zope.publisher" = ">=4.3.1"
+"zope.schema" = ">=4.4.2"
+"zope.security" = "*"
+
+[package.extras]
+test = ["zc.sourcefactory", "zope.container", "zope.principalregistry", "zope.site", "zope.traversing", "zope.app.appsetup", "zope.testing", "zope.testrunner", "zope.app.wsgi (>=4.1.0)", "webtest"]
+
+[[package]]
+name = "zope.app.generations"
+version = "4.0.0"
+description = "ZMI UI for zope.generations"
+category = "dev"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+docutils = "*"
+"zope.app.publication" = "*"
+"zope.applicationcontrol" = "*"
+"zope.generations" = ">=4.0.0a1"
+"zope.interface" = "*"
+"zope.processlifetime" = "*"
+
+[package.extras]
+test = ["zodb", "webtest", "zope.app.appsetup", "zope.app.basicskin (>=4.0.0)", "zope.app.publication", "zope.app.wsgi", "zope.browsermenu", "zope.browserpage", "zope.browserresource", "zope.container", "zope.login", "zope.principalregistry", "zope.publisher", "zope.securitypolicy", "zope.testbrowser (>=5.2)", "zope.testing", "zope.testrunner", "zope.traversing (>=4.1.0)"]
+
+[[package]]
+name = "zope.app.http"
+version = "4.0.1"
+description = "HTTP Behavior for the Zope Publisher"
+category = "dev"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+"zope.container" = ">=4.0.0a2"
+"zope.filerepresentation" = "*"
+"zope.interface" = "*"
+"zope.publisher" = ">=4.0.0a2"
+
+[package.extras]
+test = ["zope.app.wsgi[testlayer] (>=4.0)", "zope.browserpage", "zope.component", "zope.login", "zope.password", "zope.principalregistry", "zope.securitypolicy (>=4.0.0a1)", "zope.site (>=4.0.0a1)"]
+
+[[package]]
+name = "zope.app.i18n"
+version = "4.1.0"
+description = "Persistent translation domains and message catalogs"
+category = "dev"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+BTrees = ">=4.4.1"
+persistent = ">=4.2.4"
+"zope.app.publisher" = ">=4.0.0"
+"zope.component" = ">=4.3.0"
+"zope.configuration" = "*"
+"zope.container" = ">=4.1.0"
+"zope.i18n" = ">=4.2.0,<4.5.0 || >=4.7.0"
+"zope.i18nmessageid" = ">=4.1.0"
+"zope.interface" = ">=3.8.0"
+"zope.publisher" = ">=4.3.2"
+"zope.security" = "*"
+
+[package.extras]
+test = ["zope.app.component", "zope.testing", "zope.testrunner"]
+
+[[package]]
+name = "zope.app.locales"
+version = "4.2"
+description = "Zope locale extraction and management utilities"
+category = "dev"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+"zope.cachedescriptors" = "*"
+"zope.i18nmessageid" = ">=4.1.0"
+"zope.interface" = "*"
+
+[package.extras]
+extract = ["zope.tal"]
+test = ["zope.i18n", "zope.security", "zope.tal", "zope.testing", "zope.testrunner"]
+zcml = ["zope.i18n", "zope.configuration"]
+
+[[package]]
+name = "zope.app.localpermission"
+version = "4.1.0"
+description = "Local Persistent Permissions for zope.security"
+category = "dev"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+persistent = "*"
+"zope.component" = "*"
+"zope.i18nmessageid" = "*"
+"zope.interface" = "*"
+"zope.location" = "*"
+"zope.security" = "*"
+
+[package.extras]
+test = ["zope.annotation", "zope.configuration", "zope.testing", "zope.testrunner"]
+
+[[package]]
+name = "zope.app.pagetemplate"
+version = "4.0.0"
+description = "PageTemplate integration for Zope 3"
+category = "dev"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+"zope.browserpage" = ">=3.12.0"
+"zope.component" = {version = "*", extras = ["hook"]}
+"zope.configuration" = "*"
+"zope.dublincore" = "*"
+"zope.i18nmessageid" = "*"
+"zope.interface" = "*"
+"zope.pagetemplate" = ">=3.5.1"
+"zope.schema" = "*"
+"zope.security" = "*"
+"zope.size" = "*"
+"zope.tales" = "*"
+"zope.traversing" = "*"
+
+[package.extras]
+test = ["zope.component", "zope.container", "zope.publisher", "zope.testrunner"]
+
+[[package]]
+name = "zope.app.principalannotation"
+version = "4.0.0"
+description = "Bootstrap subscriber and browser menu item for zope.principalannotation"
+category = "dev"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+transaction = "*"
+"zope.app.appsetup" = ">=4.0.0"
+"zope.principalannotation" = ">=4.0.0"
+"zope.processlifetime" = ">=2.1.0"
+
+[package.extras]
+test = ["zope.container", "zope.testing", "zope.testrunner", "zope.traversing"]
+
+[[package]]
+name = "zope.app.publication"
+version = "4.5"
+description = "Zope publication"
+category = "dev"
+optional = false
+python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
+
+[package.dependencies]
+six = "*"
+transaction = ">=1.1.0"
+"zope.authentication" = "*"
+"zope.browser" = ">=1.2"
+"zope.component" = "*"
+"zope.error" = "*"
+"zope.i18n" = ">=4.0.0a3"
+"zope.interface" = "*"
+"zope.location" = "*"
+"zope.publisher" = ">=4.0.0a2"
+"zope.traversing" = ">=4.0.0a2"
+
+[package.extras]
+test = ["zope.annotation", "zope.app.appsetup (>=3.14.0)", "zope.app.http (>=4.0)", "zope.app.wsgi[testlayer] (>=4.3)", "zope.applicationcontrol (>=4.0.0a1)", "zope.browserpage", "zope.login", "zope.password", "zope.principalregistry", "zope.securitypolicy", "zope.site (>=4.0.0a1)", "zope.testing", "zope.testrunner", "ZODB (>=5.1)"]
+
+[[package]]
+name = "zope.app.publisher"
+version = "4.3.1"
+description = "Implementations and means for configuration of Zope 3-style views and resources."
+category = "dev"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+"zope.browsermenu" = "*"
+"zope.browserpage" = "*"
+"zope.browserresource" = "*"
+"zope.component" = "*"
+"zope.componentvocabulary" = "*"
+"zope.configuration" = "*"
+"zope.datetime" = "*"
+"zope.interface" = "*"
+"zope.location" = "*"
+"zope.ptresource" = "*"
+"zope.publisher" = ">=3.12"
+"zope.schema" = "*"
+"zope.security" = "*"
+
+[package.extras]
+test = ["zope.app.appsetup", "zope.app.authentication", "zope.app.basicskin (>=4.0.0)", "zope.app.container (>=4.0.0)", "zope.app.form (>=5.0.0)", "zope.app.publisher", "zope.app.publication", "zope.app.rotterdam (>=4.0.0)", "zope.app.schema (>=4.0.0)", "zope.app.wsgi", "zope.browserpage", "zope.browserresource", "zope.container", "zope.deferredimport", "zope.formlib", "zope.login", "zope.principalannotation", "zope.principalregistry", "zope.publisher", "zope.securitypolicy", "zope.testbrowser (>=5.2)", "zope.testing", "zope.testrunner", "zope.traversing (>=4.1.0)", "webtest"]
+testing = ["zope.app.wsgi"]
+
+[[package]]
+name = "zope.app.rotterdam"
+version = "4.0.1"
+description = "Rotterdam -- A Zope 3 ZMI Skin"
+category = "dev"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+"zope.app.basicskin" = ">=4.0"
+"zope.app.pagetemplate" = ">=4.0"
+"zope.component" = "*"
+"zope.container" = "*"
+"zope.formlib" = "*"
+"zope.i18n" = "*"
+"zope.i18nmessageid" = "*"
+"zope.interface" = "*"
+"zope.proxy" = "*"
+"zope.publisher" = ">=4.3.1"
+"zope.security" = "*"
+"zope.traversing" = "*"
+
+[package.extras]
+test = ["zope.app.appsetup", "zope.app.basicskin (>=4.0)", "zope.app.container (>=4.0)", "zope.app.pagetemplate (>=4.0)", "zope.app.publication", "zope.app.wsgi", "zope.applicationcontrol", "zope.browser", "zope.browserresource", "zope.login", "zope.password", "zope.principalannotation", "zope.principalregistry", "zope.proxy (>=4.2.1)", "zope.securitypolicy", "zope.site", "zope.testbrowser (>=5.2)", "zope.testing", "zope.testrunner"]
+
+[[package]]
+name = "zope.app.schema"
+version = "4.1.0"
+description = "Component Architecture based Vocabulary Registry"
+category = "dev"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+"zope.vocabularyregistry" = ">=1.0.0"
+
+[package.extras]
+test = ["zope.configuration", "zope.security", "zope.testing", "zope.testrunner"]
+zcml = ["zope.configuration", "zope.security"]
+
+[[package]]
+name = "zope.app.security"
+version = "5.1.0"
+description = "ZMI Views For Zope3 Security Components"
+category = "dev"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+"zope.app.localpermission" = "*"
+"zope.app.pagetemplate" = "*"
+"zope.app.publisher" = "*"
+"zope.authentication" = "*"
+"zope.i18n" = "*"
+"zope.i18nmessageid" = "*"
+"zope.interface" = "*"
+"zope.login" = "*"
+"zope.principalregistry" = "*"
+"zope.publisher" = ">=4.3.1"
+"zope.security" = "*"
+"zope.securitypolicy" = "*"
+
+[package.extras]
+test = ["zope.app.wsgi", "zope.testrunner", "webtest"]
+
+[[package]]
+name = "zope.app.server"
+version = "4.1.0"
+description = "ZServer integration for Zope 3 Applications"
+category = "dev"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+ZConfig = "*"
+zdaemon = "*"
+"zope.app.applicationcontrol" = "*"
+"zope.app.appsetup" = ">=3.11"
+"zope.app.publication" = "*"
+"zope.app.wsgi" = "*"
+"zope.configuration" = "*"
+"zope.deprecation" = "*"
+"zope.event" = "*"
+"zope.interface" = "*"
+"zope.password" = ">=3.6"
+"zope.processlifetime" = "*"
+"zope.publisher" = "*"
+"zope.server" = ">=4.0"
+
+[package.extras]
+test = ["zope.testrunner", "zope.app.testing", "zodb"]
+
+[[package]]
+name = "zope.app.session"
+version = "4.1.0"
+description = "Zope session"
+category = "dev"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+"zope.session" = "*"
+
+[package.extras]
+test = ["transaction", "webtest", "zope.app.basicskin (>=4.0.0)", "zope.app.form (>=5.0.0)", "zope.app.appsetup (>=4.0.0)", "zope.app.component (>=4.0.0)", "zope.app.container (>=4.0.0)", "zope.app.publication (>=4.2.1)", "zope.app.rotterdam (>=4.0.1)", "zope.app.securitypolicy", "zope.app.wsgi", "zope.container", "zope.pagetemplate", "zope.site", "zope.testbrowser", "zope.testing", "zope.testrunner"]
+
+[[package]]
+name = "zope.app.wsgi"
+version = "4.4"
+description = "WSGI application for the zope.publisher"
+category = "dev"
+optional = false
+python-versions = ">=2.7,!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*"
+
+[package.dependencies]
+transaction = "*"
+ZConfig = "*"
+"zope.app.appsetup" = ">=4.0"
+"zope.app.publication" = ">=4.0"
+"zope.component" = "*"
+"zope.container" = ">=4.0.0a1"
+"zope.event" = "*"
+"zope.interface" = "*"
+"zope.processlifetime" = "*"
+"zope.publisher" = ">=4.0.0a3"
+"zope.security" = ">4.0.0a2"
+"zope.site" = ">=4.0.0a1"
+"zope.traversing" = ">=4.0.0a1"
+
+[package.extras]
+test = ["webtest", "zope.authentication", "zope.browserpage", "zope.principalregistry (>=4.0.0a1)", "zope.securitypolicy (>=4.0.0a1)", "zope.testing", "zope.testrunner"]
+testlayer = ["webtest"]
+
+[[package]]
+name = "zope.app.zcmlfiles"
+version = "4.0.0"
+description = "Zope application server ZCML files"
+category = "dev"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+"zope.annotation" = ">=4.4.1"
+"zope.app.applicationcontrol" = ">=4.0.0"
+"zope.app.appsetup" = ">=4.0.0"
+"zope.app.basicskin" = ">=4.0.0"
+"zope.app.broken" = ">=4.0.0"
+"zope.app.component" = ">=4.0.0"
+"zope.app.container" = ">=4.0.0"
+"zope.app.content" = ">=4.0.0"
+"zope.app.dependable" = ">=4.0.0"
+"zope.app.error" = ">=4.0.0"
+"zope.app.exception" = ">=4.0.1"
+"zope.app.folder" = ">=4.0.0"
+"zope.app.form" = ">=5.0.0"
+"zope.app.generations" = ">=4.0.0"
+"zope.app.http" = ">=4.0.1"
+"zope.app.i18n" = ">=4.0.0"
+"zope.app.locales" = ">=4.0.0"
+"zope.app.pagetemplate" = ">=4.0.0"
+"zope.app.principalannotation" = ">=4.0.0"
+"zope.app.publication" = ">=4.2.1"
+"zope.app.publisher" = ">=4.0.0"
+"zope.app.rotterdam" = ">=4.0.0"
+"zope.app.schema" = ">=4.1.0"
+"zope.app.security" = ">=4.0.0"
+"zope.app.wsgi" = ">=4.1.0"
+"zope.component" = ">=4.3.0"
+"zope.componentvocabulary" = ">=2.0.0"
+"zope.copypastemove" = ">=4.0.0"
+"zope.dublincore" = ">=4.1.1"
+"zope.formlib" = ">=4.3.0"
+"zope.i18n" = ">=4.2.0"
+"zope.location" = ">=4.0.3"
+"zope.publisher" = ">=4.3.2"
+"zope.size" = ">=4.1.0"
+"zope.traversing" = ">=4.1.0"
+
+[package.extras]
+test = ["webtest", "zope.testrunner"]
+
+[[package]]
+name = "zope.applicationcontrol"
+version = "4.3"
+description = "Zope applicationcontrol"
+category = "dev"
+optional = false
+python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
+
+[package.dependencies]
+"zope.component" = "*"
+"zope.interface" = "*"
+"zope.location" = "*"
+"zope.security" = "*"
+"zope.traversing" = ">=3.7.0"
+
+[package.extras]
+test = ["zope.testing", "zope.testrunner"]
+
+[[package]]
+name = "zope.authentication"
+version = "4.5.0"
+description = "Definition of authentication basics for the Zope Framework"
+category = "dev"
+optional = false
+python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
+
+[package.dependencies]
+"zope.browser" = "*"
+"zope.component" = ">=3.6.0"
+"zope.i18nmessageid" = "*"
+"zope.interface" = ">=3.8"
+"zope.schema" = "*"
+"zope.security" = "*"
+
+[package.extras]
+docs = ["repoze.sphinx.autointerface", "sphinx"]
+test = ["zope.testing", "zope.testrunner"]
+
+[[package]]
+name = "zope.browser"
+version = "2.4"
+description = "Shared Zope Toolkit browser components"
+category = "dev"
+optional = false
+python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
+
+[package.dependencies]
+"zope.interface" = "*"
+
+[package.extras]
+test = ["zope.testrunner"]
+docs = ["repoze.sphinx.autointerface", "sphinx-rtd-theme", "sphinx"]
+
+[[package]]
+name = "zope.browsermenu"
+version = "4.4"
+description = "Browser menu implementation for Zope."
+category = "dev"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+six = "*"
+"zope.browser" = "*"
+"zope.component" = ">=3.7"
+"zope.configuration" = "*"
+"zope.i18nmessageid" = "*"
+"zope.interface" = "*"
+"zope.pagetemplate" = ">=3.5"
+"zope.publisher" = ">=4.2.1"
+"zope.schema" = "*"
+"zope.security" = "*"
+"zope.traversing" = ">3.7"
+
+[package.extras]
+test = ["zope.testing", "zope.testrunner"]
+
+[[package]]
+name = "zope.browserpage"
+version = "4.4.0"
+description = "ZCML directives for configuring browser views for Zope."
+category = "dev"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+"zope.component" = ">=3.7"
+"zope.configuration" = "*"
+"zope.interface" = "*"
+"zope.pagetemplate" = "*"
+"zope.publisher" = ">=3.8"
+"zope.schema" = "*"
+"zope.security" = "*"
+"zope.tal" = ">=4.2.0"
+"zope.traversing" = "*"
+
+[package.extras]
+menu = ["zope.browsermenu"]
+test = ["zope.browsermenu", "zope.testing", "zope.testrunner"]
+
+[[package]]
+name = "zope.browserresource"
+version = "4.4"
+description = "Browser resources implementation for Zope."
+category = "dev"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+"zope.component" = ">=3.8.0"
+"zope.configuration" = "*"
+"zope.contenttype" = ">=4.0.1"
+"zope.i18n" = "*"
+"zope.interface" = "*"
+"zope.location" = "*"
+"zope.publisher" = ">=3.8"
+"zope.schema" = "*"
+"zope.traversing" = ">3.7"
+
+[package.extras]
+docs = ["sphinx", "repoze.sphinx.autointerface"]
+test = ["zope.component", "zope.security[zcml] (>=3.8)", "zope.testing", "zope.testrunner"]
+zcml = ["zope.component", "zope.security[zcml] (>=3.8)"]
+
+[[package]]
+name = "zope.cachedescriptors"
+version = "4.3.1"
+description = "Method and property caching decorators"
+category = "dev"
+optional = false
+python-versions = "*"
+
+[[package]]
+name = "zope.component"
+version = "5.0.1"
+description = "Zope Component Architecture"
+category = "dev"
+optional = false
+python-versions = ">=2.7,!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*"
+
+[package.dependencies]
+"zope.configuration" = {version = "*", optional = true, markers = "extra == \"zcml\""}
+"zope.event" = "*"
+"zope.hookable" = ">=4.2.0"
+"zope.i18nmessageid" = {version = "*", optional = true, markers = "extra == \"zcml\""}
+"zope.interface" = ">=5.3.0a1"
+
+[package.extras]
+docs = ["sphinx", "repoze.sphinx.autointerface", "zodb"]
+mintests = ["zope.configuration", "zope.i18nmessageid", "zope.testing", "zope.testrunner"]
+persistentregistry = ["persistent"]
+security = ["zope.location", "zope.proxy", "zope.security"]
+test = ["zope.configuration", "zope.i18nmessageid", "zope.testing", "zope.testrunner", "persistent", "zope.location", "zope.proxy", "zope.security"]
+zcml = ["zope.configuration", "zope.i18nmessageid"]
+
+[[package]]
+name = "zope.componentvocabulary"
+version = "2.3.0"
+description = "Component vocabularies"
+category = "dev"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+six = "*"
+"zope.component" = "*"
+"zope.i18nmessageid" = "*"
+"zope.interface" = "*"
+"zope.schema" = "*"
+"zope.security" = "*"
+
+[package.extras]
+test = ["zope.testrunner", "zope.testing", "zope.configuration"]
+
+[[package]]
+name = "zope.configuration"
+version = "4.4.1"
+description = "Zope Configuration Markup Language (ZCML)"
+category = "dev"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+"zope.i18nmessageid" = "*"
+"zope.interface" = "*"
+"zope.schema" = ">=4.9"
+
+[package.extras]
+docs = ["sphinx", "repoze.sphinx.autointerface"]
+test = ["manuel", "zope.schema (>=4.9.0)", "zope.testing", "zope.testrunner"]
+
+[[package]]
+name = "zope.container"
+version = "4.6"
+description = "Zope Container"
+category = "dev"
+optional = false
+python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
+
+[package.dependencies]
+BTrees = "*"
+persistent = ">=4.1.0"
+six = "*"
+"zope.cachedescriptors" = "*"
+"zope.component" = "*"
+"zope.deferredimport" = "*"
+"zope.dottedname" = "*"
+"zope.event" = "*"
+"zope.filerepresentation" = "*"
+"zope.i18nmessageid" = "*"
+"zope.interface" = "*"
+"zope.lifecycleevent" = ">=3.5.2"
+"zope.location" = ">=3.5.4"
+"zope.proxy" = ">=4.1.5"
+"zope.publisher" = "*"
+"zope.schema" = "*"
+"zope.security" = "*"
+"zope.size" = "*"
+"zope.traversing" = ">=4.0.0a1"
+
+[package.extras]
+docs = ["sphinx", "repoze.sphinx.autointerface", "sphinx-rtd-theme"]
+test = ["zope.testing", "zope.testrunner", "ZODB (>=3.10)", "zope.component", "zope.configuration", "zope.security[zcml] (>=4.0.0a3)"]
+zcml = ["zope.component", "zope.configuration", "zope.security[zcml] (>=4.0.0a3)"]
+zodb = ["ZODB (>=3.10)"]
+
+[[package]]
+name = "zope.contenttype"
+version = "4.5.0"
+description = "Zope contenttype"
+category = "dev"
+optional = false
+python-versions = "*"
+
+[package.extras]
+docs = ["sphinx", "sphinx-rtd-theme"]
+test = ["zope.testrunner"]
+
+[[package]]
+name = "zope.copy"
+version = "4.2"
+description = "Pluggable object copying mechanism"
+category = "dev"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+"zope.interface" = "*"
+
+[package.extras]
+docs = ["sphinx", "repoze.sphinx.autointerface"]
+test = ["zope.component", "zope.location", "zope.testing", "zope.testrunner"]
+
+[[package]]
+name = "zope.copypastemove"
+version = "4.2.0"
+description = "Copy, Paste and Move support for content components."
+category = "dev"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+"zope.annotation" = "*"
+"zope.component" = "*"
+"zope.container" = "*"
+"zope.copy" = "*"
+"zope.event" = "*"
+"zope.exceptions" = "*"
+"zope.interface" = "*"
+"zope.lifecycleevent" = "*"
+"zope.location" = "*"
+
+[package.extras]
+test = ["zope.component", "zope.configuration", "zope.security", "zope.dublincore (>=3.8)", "zope.principalannotation", "zope.testing", "zope.testrunner", "zope.traversing"]
+zcml = ["zope.component", "zope.configuration", "zope.security"]
+
+[[package]]
+name = "zope.datetime"
+version = "4.3.0"
+description = "Zope datetime"
+category = "dev"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+six = "*"
+
+[package.extras]
+docs = ["sphinx", "sphinx-rtd-theme"]
+test = ["zope.testrunner"]
+
+[[package]]
+name = "zope.deferredimport"
+version = "4.4"
+description = "zope.deferredimport allows you to perform imports names that will only be resolved when used in the code."
+category = "dev"
+optional = false
+python-versions = ">=2.7,!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*"
+
+[package.dependencies]
+"zope.proxy" = "*"
+
+[package.extras]
+docs = ["sphinx", "repoze.sphinx.autointerface"]
+test = ["zope.testrunner"]
+
+[[package]]
+name = "zope.deprecation"
+version = "4.4.0"
+description = "Zope Deprecation Infrastructure"
+category = "dev"
+optional = false
+python-versions = "*"
+
+[package.extras]
+docs = ["sphinx"]
+test = ["zope.testrunner"]
+
+[[package]]
+name = "zope.dottedname"
+version = "4.3"
+description = "Resolver for Python dotted names."
+category = "dev"
+optional = false
+python-versions = "*"
+
+[[package]]
+name = "zope.dublincore"
+version = "4.3.0"
+description = "Zope Dublin Core implementation"
+category = "dev"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+persistent = "*"
+pytz = "*"
+six = "*"
+"zope.annotation" = "*"
+"zope.component" = {version = "*", extras = ["zcml"]}
+"zope.datetime" = "*"
+"zope.interface" = "*"
+"zope.lifecycleevent" = "*"
+"zope.location" = "*"
+"zope.schema" = "*"
+"zope.security" = {version = ">=3.8", extras = ["zcml"]}
+
+[package.extras]
+docs = ["sphinx", "repoze.sphinx.autointerface"]
+test = ["zope.testing (>=3.8)", "zope.testrunner", "zope.configuration", "btrees", "zope.publisher"]
+testing = ["zope.testing (>=3.8)", "zope.testrunner", "zope.configuration", "btrees"]
+
+[[package]]
+name = "zope.error"
+version = "4.5.0"
+description = "An error reporting utility for Zope3"
+category = "dev"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+persistent = "*"
+six = "*"
+"zope.exceptions" = "*"
+"zope.interface" = "*"
+"zope.location" = "*"
+
+[package.extras]
+test = ["zope.testing (>=3.8)", "zope.testrunner"]
+
+[[package]]
+name = "zope.event"
+version = "4.5.0"
+description = "Very basic event publishing system"
+category = "dev"
+optional = false
+python-versions = "*"
+
+[package.extras]
+docs = ["sphinx"]
+test = ["zope.testrunner"]
+
+[[package]]
+name = "zope.exceptions"
+version = "4.5"
+description = "Zope Exceptions"
+category = "dev"
+optional = false
+python-versions = ">=2.7,!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*"
+
+[package.dependencies]
+"zope.interface" = "*"
+
+[package.extras]
+docs = ["sphinx", "repoze.sphinx.autointerface"]
+test = ["zope.testrunner"]
+
+[[package]]
+name = "zope.filerepresentation"
+version = "5.0.0"
+description = "File-system Representation Interfaces"
+category = "dev"
+optional = false
+python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
+
+[package.dependencies]
+"zope.interface" = "*"
+"zope.schema" = "*"
+
+[package.extras]
+docs = ["sphinx", "repoze.sphinx.autointerface", "sphinx-rtd-theme"]
+test = ["zope.testrunner"]
+
+[[package]]
+name = "zope.formlib"
+version = "5.0.1"
+description = "Form generation and validation library for Zope"
+category = "dev"
+optional = false
+python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
+
+[package.dependencies]
+pytz = "*"
+"zope.browser" = ">=1.1"
+"zope.browserpage" = ">=3.11.0"
+"zope.browserresource" = "*"
+"zope.component" = "*"
+"zope.datetime" = "*"
+"zope.event" = "*"
+"zope.i18n" = "*"
+"zope.i18nmessageid" = "*"
+"zope.interface" = "*"
+"zope.lifecycleevent" = "*"
+"zope.publisher" = "*"
+"zope.schema" = ">=3.5.1,<6.1 || >6.1"
+"zope.security" = "*"
+"zope.traversing" = "*"
+
+[package.extras]
+docs = ["sphinx", "sphinx-rtd-theme", "repoze.sphinx.autointerface"]
+test = ["zope.configuration", "zope.schema (>=6.1)", "zope.testing", "zope.testrunner"]
+
+[[package]]
+name = "zope.generations"
+version = "5.1.0"
+description = "Zope application schema generations"
+category = "dev"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+transaction = "*"
+"zope.component" = "*"
+"zope.interface" = "*"
+"zope.processlifetime" = "*"
+
+[package.extras]
+docs = ["sphinx", "repoze.sphinx.autointerface"]
+test = ["zodb", "zope.site", "zope.testing", "zope.testrunner"]
+
+[[package]]
+name = "zope.hookable"
+version = "5.1.0"
+description = "Zope hookable"
+category = "dev"
+optional = false
+python-versions = ">=2.7,!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*"
+
+[package.extras]
+docs = ["sphinx"]
+test = ["zope.testing", "zope.testrunner"]
+testing = ["zope.testing", "zope.testrunner", "coverage"]
+
+[[package]]
+name = "zope.i18n"
+version = "4.9.0"
+description = "Zope Internationalization Support"
+category = "dev"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+python-gettext = "*"
+pytz = "*"
+"zope.component" = "*"
+"zope.deprecation" = "*"
+"zope.i18nmessageid" = ">=4.3"
+"zope.schema" = "*"
+
+[package.extras]
+docs = ["sphinx", "repoze.sphinx.autointerface"]
+test = ["zope.component", "zope.configuration", "zope.security", "zope.publisher", "zope.testing", "zope.testrunner"]
+zcml = ["zope.component", "zope.configuration", "zope.security"]
+
+[[package]]
+name = "zope.i18nmessageid"
+version = "5.0.1"
+description = "Message Identifiers for internationalization"
+category = "dev"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+six = "*"
+
+[package.extras]
+docs = ["sphinx"]
+test = ["zope.testrunner", "coverage"]
+testing = ["zope.testrunner", "coverage"]
 
 [[package]]
 name = "zope.interface"
@@ -254,10 +1572,478 @@ docs = ["sphinx", "repoze.sphinx.autointerface"]
 test = ["coverage (>=5.0.3)", "zope.event", "zope.testing"]
 testing = ["coverage (>=5.0.3)", "zope.event", "zope.testing"]
 
+[[package]]
+name = "zope.lifecycleevent"
+version = "4.4"
+description = "Object life-cycle events"
+category = "dev"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+"zope.event" = "*"
+"zope.interface" = "*"
+
+[package.extras]
+docs = ["repoze.sphinx.autointerface", "sphinx-rtd-theme"]
+test = ["zope.component", "zope.configuration", "zope.testing", "zope.testrunner"]
+
+[[package]]
+name = "zope.location"
+version = "4.2"
+description = "Zope Location"
+category = "dev"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+"zope.interface" = ">=4.0.2"
+"zope.proxy" = ">=4.0.1"
+"zope.schema" = ">=4.2.2"
+
+[package.extras]
+component = ["zope.component (>=4.0.1)"]
+docs = ["sphinx", "repoze.sphinx.autointerface", "zope.component (>=4.0.1)", "zope.configuration"]
+test = ["zope.component (>=4.0.1)", "zope.configuration", "zope.copy (>=4.0)", "zope.testrunner"]
+zcml = ["zope.configuration"]
+
+[[package]]
+name = "zope.login"
+version = "2.2"
+description = "Login helpers for zope.publisher / authentication."
+category = "dev"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+"zope.authentication" = "*"
+"zope.component" = "*"
+"zope.interface" = "*"
+"zope.publisher" = ">=4.0.0"
+
+[package.extras]
+test = ["zope.testing", "zope.testrunner"]
+docs = ["sphinx"]
+
+[[package]]
+name = "zope.minmax"
+version = "2.2.0"
+description = "Homogeneous values favoring maximum or minimum for ZODB conflict resolution"
+category = "dev"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+persistent = "*"
+"zope.interface" = "*"
+
+[package.extras]
+docs = ["sphinx", "repoze.sphinx.autointerface"]
+test = ["zope.testrunner"]
+
+[[package]]
+name = "zope.pagetemplate"
+version = "4.6.0"
+description = "Zope Page Templates"
+category = "dev"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+six = "*"
+"zope.component" = "*"
+"zope.i18n" = ">=4.0.1"
+"zope.i18nmessageid" = "*"
+"zope.interface" = "*"
+"zope.tal" = ">=4.2.0"
+"zope.tales" = "*"
+"zope.traversing" = "*"
+
+[package.extras]
+docs = ["sphinx", "repoze.sphinx.autointerface"]
+test = ["zope.proxy", "zope.security", "zope.testing", "zope.testrunner", "zope.untrustedpython"]
+untrusted = ["zope.untrustedpython"]
+
+[[package]]
+name = "zope.password"
+version = "4.3.1"
+description = "Password encoding and checking utilities"
+category = "dev"
+optional = false
+python-versions = ">=2.7.7,!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*"
+
+[package.dependencies]
+"zope.component" = "*"
+"zope.configuration" = "*"
+"zope.interface" = "*"
+
+[package.extras]
+bcrypt = ["bcrypt"]
+docs = ["sphinx", "repoze.sphinx.autointerface"]
+test = ["bcrypt", "zope.schema", "zope.security", "zope.testing", "zope.testrunner"]
+vocabulary = ["zope.schema"]
+
+[[package]]
+name = "zope.pluggableauth"
+version = "2.3.1"
+description = "Pluggable Authentication Utility"
+category = "dev"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+persistent = "*"
+transaction = "*"
+"zope.authentication" = "*"
+"zope.component" = "*"
+"zope.container" = "*"
+"zope.event" = "*"
+"zope.i18nmessageid" = "*"
+"zope.interface" = "*"
+"zope.password" = ">=3.5.1"
+"zope.publisher" = ">=3.12"
+"zope.schema" = "*"
+"zope.security" = "*"
+"zope.session" = "*"
+"zope.site" = "*"
+"zope.traversing" = "*"
+
+[package.extras]
+test = ["zope.testing", "zope.testrunner"]
+
+[[package]]
+name = "zope.principalannotation"
+version = "4.4"
+description = "Annotations for Zope Principals"
+category = "dev"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+persistent = ">=4.4.2"
+"zope.annotation" = "*"
+"zope.component" = ">=4.5.0"
+"zope.interface" = ">=4.5.0"
+"zope.location" = "*"
+"zope.security" = "*"
+"zope.site" = "*"
+
+[package.extras]
+docs = ["sphinx", "repoze.sphinx.autointerface", "sphinx-rtd-theme"]
+test = ["zope.configuration", "zope.testing", "zope.site", "zope.testrunner"]
+
+[[package]]
+name = "zope.principalregistry"
+version = "4.3"
+description = "Global principal registry component for Zope3"
+category = "dev"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+"zope.authentication" = "*"
+"zope.component" = "*"
+"zope.interface" = "*"
+"zope.password" = "*"
+"zope.security" = "*"
+
+[package.extras]
+docs = ["sphinx", "repoze.sphinx.autointerface"]
+test = ["zope.testing", "zope.testrunner"]
+
+[[package]]
+name = "zope.processlifetime"
+version = "2.3.0"
+description = "Zope process lifetime events"
+category = "dev"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+"zope.interface" = "*"
+
+[package.extras]
+docs = ["sphinx", "repoze.sphinx.autointerface"]
+test = ["zope.testrunner"]
+
+[[package]]
+name = "zope.proxy"
+version = "4.5.0"
+description = "Generic Transparent Proxies"
+category = "dev"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+"zope.interface" = "*"
+
+[package.extras]
+docs = ["sphinx", "repoze.sphinx.autointerface"]
+test = ["zope.security", "zope.testrunner"]
+
+[[package]]
+name = "zope.ptresource"
+version = "4.3.0"
+description = "Page template resource plugin for zope.browserresource"
+category = "dev"
+optional = false
+python-versions = ">=2.7,!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*"
+
+[package.dependencies]
+"zope.browserresource" = "*"
+"zope.interface" = "*"
+"zope.pagetemplate" = "*"
+"zope.publisher" = "*"
+"zope.security" = "*"
+
+[package.extras]
+test = ["zope.testing", "zope.testrunner"]
+
+[[package]]
+name = "zope.publisher"
+version = "6.1.0"
+description = "The Zope publisher publishes Python objects on the web."
+category = "dev"
+optional = false
+python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
+
+[package.dependencies]
+multipart = {version = "*", markers = "python_version >= \"3\""}
+six = "*"
+"zope.browser" = "*"
+"zope.component" = "*"
+"zope.configuration" = "*"
+"zope.contenttype" = ">=4.0.0"
+"zope.event" = "*"
+"zope.exceptions" = "*"
+"zope.i18n" = ">=4.0.0"
+"zope.interface" = ">=4.0.1"
+"zope.location" = "*"
+"zope.proxy" = "*"
+"zope.security" = ">=4.0.0"
+
+[package.extras]
+docs = ["sphinx", "repoze.sphinx.autointerface", "sphinx-rtd-theme"]
+test = ["zope.testing", "zope.testrunner"]
+
+[[package]]
+name = "zope.schema"
+version = "6.2.0"
+description = "zope.interface extension for defining data schemas"
+category = "dev"
+optional = false
+python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
+
+[package.dependencies]
+"zope.event" = "*"
+"zope.interface" = ">=5.0.0"
+
+[package.extras]
+docs = ["sphinx", "repoze.sphinx.autointerface"]
+test = ["zope.i18nmessageid", "zope.testing", "zope.testrunner"]
+
+[[package]]
+name = "zope.security"
+version = "5.3"
+description = "Zope Security Framework"
+category = "dev"
+optional = false
+python-versions = ">=2.7,!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*"
+
+[package.dependencies]
+"zope.component" = "*"
+"zope.configuration" = {version = "*", optional = true, markers = "extra == \"zcml\""}
+"zope.i18nmessageid" = "*"
+"zope.interface" = "*"
+"zope.location" = "*"
+"zope.proxy" = ">=4.3.0"
+"zope.schema" = ">=4.2.0"
+
+[package.extras]
+docs = ["sphinx", "repoze.sphinx.autointerface", "zope.configuration", "zope.testing"]
+pytz = ["pytz"]
+test = ["btrees", "zope.component", "zope.configuration", "zope.location", "zope.testing", "zope.testrunner"]
+untrustedpython = ["zope.untrustedpython"]
+zcml = ["zope.configuration"]
+
+[[package]]
+name = "zope.securitypolicy"
+version = "4.3.2"
+description = "Default security policy for Zope3"
+category = "dev"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+persistent = "*"
+"zope.annotation" = "*"
+"zope.authentication" = "*"
+"zope.component" = "*"
+"zope.configuration" = "*"
+"zope.i18nmessageid" = "*"
+"zope.interface" = ">=3.8"
+"zope.location" = "*"
+"zope.schema" = "*"
+"zope.security" = "*"
+
+[package.extras]
+dublincore = ["zope.dublincore (>=3.7)"]
+test = ["zope.testing", "zope.testrunner"]
+
+[[package]]
+name = "zope.server"
+version = "4.0.2"
+description = "Zope Server (Web and FTP)"
+category = "dev"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+six = "*"
+"zope.interface" = "*"
+"zope.publisher" = "*"
+"zope.security" = "*"
+
+[package.extras]
+test = ["paste", "zope.component", "zope.i18n", "zope.testing", "zope.testrunner"]
+
+[[package]]
+name = "zope.session"
+version = "4.4.0"
+description = "Client identification and sessions for Zope"
+category = "dev"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+ZODB = ">=4.2.0.b1"
+"zope.component" = "*"
+"zope.i18nmessageid" = ">=4.0.3"
+"zope.interface" = "*"
+"zope.location" = "*"
+"zope.minmax" = "*"
+"zope.publisher" = ">=4.1.0"
+
+[package.extras]
+docs = ["sphinx", "repoze.sphinx.autointerface"]
+test = ["zope.configuration", "zope.traversing", "zope.testing", "zope.testrunner"]
+
+[[package]]
+name = "zope.site"
+version = "4.5.0"
+description = "Local registries for zope component architecture"
+category = "dev"
+optional = false
+python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
+
+[package.dependencies]
+"zope.annotation" = "*"
+"zope.component" = ">=4.5.0"
+"zope.container" = "*"
+"zope.deprecation" = "*"
+"zope.event" = "*"
+"zope.interface" = ">=4.5.0"
+"zope.lifecycleevent" = "*"
+"zope.location" = "*"
+"zope.security" = "*"
+
+[package.extras]
+docs = ["sphinx", "repoze.sphinx.autointerface", "sphinx-rtd-theme"]
+test = ["zodb", "zope.component", "zope.configuration", "zope.security", "zope.testing", "zope.testrunner"]
+
+[[package]]
+name = "zope.size"
+version = "4.3"
+description = "Interfaces and simple adapter that give the size of an object"
+category = "dev"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+"zope.i18nmessageid" = "*"
+"zope.interface" = "*"
+
+[package.extras]
+test = ["zope.component", "zope.configuration", "zope.security"]
+zcml = ["zope.component", "zope.configuration", "zope.security"]
+
+[[package]]
+name = "zope.tal"
+version = "4.5"
+description = "Zope Template Application Language (TAL)"
+category = "dev"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+"zope.i18nmessageid" = "*"
+"zope.interface" = "*"
+
+[package.extras]
+docs = ["sphinx", "repoze.sphinx.autointerface"]
+test = ["zope.testing", "zope.testrunner"]
+
+[[package]]
+name = "zope.tales"
+version = "5.1"
+description = "Zope Template Application Language Expression Syntax (TALES)"
+category = "dev"
+optional = false
+python-versions = ">=2.7,!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*"
+
+[package.dependencies]
+six = "*"
+"zope.interface" = "*"
+
+[package.extras]
+docs = ["sphinx", "repoze.sphinx.autointerface", "zope.tal"]
+tal = ["zope.tal"]
+test = ["zope.testing", "zope.testrunner"]
+
+[[package]]
+name = "zope.traversing"
+version = "4.4.1"
+description = "Resolving paths in the object hierarchy"
+category = "dev"
+optional = false
+python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
+
+[package.dependencies]
+six = "*"
+transaction = "*"
+"zope.component" = "*"
+"zope.i18n" = "*"
+"zope.i18nmessageid" = "*"
+"zope.interface" = ">=4.0.4"
+"zope.location" = ">=3.7.0"
+"zope.proxy" = "*"
+"zope.publisher" = "*"
+"zope.security" = "*"
+
+[package.extras]
+docs = ["sphinx", "repoze.sphinx.autointerface"]
+test = ["zope.annotation", "zope.browserresource[zcml] (>=3.12)", "zope.component", "zope.configuration", "zope.security[zcml] (>=3.8)", "zope.tales", "zope.testing", "zope.testrunner"]
+
+[[package]]
+name = "zope.vocabularyregistry"
+version = "1.2.0"
+description = "Utility-based Vocabulary Registry"
+category = "dev"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+"zope.component" = "*"
+"zope.interface" = "*"
+"zope.schema" = "*"
+
+[package.extras]
+test = ["zope.testrunner", "zope.testing", "zope.configuration"]
+
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.10"
-content-hash = "2538fe6deb721ef872cb5a20b95e484f6425e73ed17902d8492c9927bc7118b5"
+content-hash = "987503d47ef4818708943f6598bfdb7cbf3b1e72a2b1093c20d5ffd1e7182d2c"
 
 [metadata.files]
 aiohttp = [
@@ -303,10 +2089,7 @@ async-timeout = [
     {file = "async-timeout-3.0.1.tar.gz", hash = "sha256:0c3c816a028d47f659d6ff5c745cb2acf1f966da1fe5c19c77a70282b25f4c5f"},
     {file = "async_timeout-3.0.1-py3-none-any.whl", hash = "sha256:4291ca197d287d274d0b6cb5d6f8f8f82d434ed288f962539ff18cc9012f9ea3"},
 ]
-attrs = [
-    {file = "attrs-21.4.0-py2.py3-none-any.whl", hash = "sha256:2d27e3784d7a565d36ab851fe94887c5eccd6a463168875832a1be79c82828b4"},
-    {file = "attrs-21.4.0.tar.gz", hash = "sha256:626ba8234211db98e869df76230a137c4c40a12d72445c45d5f5b716f076e2fd"},
-]
+attrs = []
 btrees = [
     {file = "BTrees-4.10.0-cp27-cp27m-macosx_10_14_x86_64.whl", hash = "sha256:c349a416e7e4f3d6a2858d605b9fa0b92fad268714134dd0e2f7e0b631c03eef"},
     {file = "BTrees-4.10.0-cp27-cp27m-win32.whl", hash = "sha256:f0a6229980c39ccba644bb15e0045f3c2b6b173c9f87bb61a23d843cb389ab98"},
@@ -345,58 +2128,7 @@ btrees = [
     {file = "BTrees-4.10.0-cp39-cp39-win_amd64.whl", hash = "sha256:03cad075c38e52e5f6662ef16ad52f0b37f849ad5d696e3d4e2da5614ce420bc"},
     {file = "BTrees-4.10.0.tar.gz", hash = "sha256:d6ab0e3410d074d7154245d6dc6493ae86f1b50bd6080d1310ebb3ecdea5deb6"},
 ]
-cffi = [
-    {file = "cffi-1.15.0-cp27-cp27m-macosx_10_9_x86_64.whl", hash = "sha256:c2502a1a03b6312837279c8c1bd3ebedf6c12c4228ddbad40912d671ccc8a962"},
-    {file = "cffi-1.15.0-cp27-cp27m-manylinux1_i686.whl", hash = "sha256:23cfe892bd5dd8941608f93348c0737e369e51c100d03718f108bf1add7bd6d0"},
-    {file = "cffi-1.15.0-cp27-cp27m-manylinux1_x86_64.whl", hash = "sha256:41d45de54cd277a7878919867c0f08b0cf817605e4eb94093e7516505d3c8d14"},
-    {file = "cffi-1.15.0-cp27-cp27m-win32.whl", hash = "sha256:4a306fa632e8f0928956a41fa8e1d6243c71e7eb59ffbd165fc0b41e316b2474"},
-    {file = "cffi-1.15.0-cp27-cp27m-win_amd64.whl", hash = "sha256:e7022a66d9b55e93e1a845d8c9eba2a1bebd4966cd8bfc25d9cd07d515b33fa6"},
-    {file = "cffi-1.15.0-cp27-cp27mu-manylinux1_i686.whl", hash = "sha256:14cd121ea63ecdae71efa69c15c5543a4b5fbcd0bbe2aad864baca0063cecf27"},
-    {file = "cffi-1.15.0-cp27-cp27mu-manylinux1_x86_64.whl", hash = "sha256:d4d692a89c5cf08a8557fdeb329b82e7bf609aadfaed6c0d79f5a449a3c7c023"},
-    {file = "cffi-1.15.0-cp310-cp310-macosx_10_9_x86_64.whl", hash = "sha256:0104fb5ae2391d46a4cb082abdd5c69ea4eab79d8d44eaaf79f1b1fd806ee4c2"},
-    {file = "cffi-1.15.0-cp310-cp310-macosx_11_0_arm64.whl", hash = "sha256:91ec59c33514b7c7559a6acda53bbfe1b283949c34fe7440bcf917f96ac0723e"},
-    {file = "cffi-1.15.0-cp310-cp310-manylinux_2_12_i686.manylinux2010_i686.whl", hash = "sha256:f5c7150ad32ba43a07c4479f40241756145a1f03b43480e058cfd862bf5041c7"},
-    {file = "cffi-1.15.0-cp310-cp310-manylinux_2_12_x86_64.manylinux2010_x86_64.whl", hash = "sha256:00c878c90cb53ccfaae6b8bc18ad05d2036553e6d9d1d9dbcf323bbe83854ca3"},
-    {file = "cffi-1.15.0-cp310-cp310-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:abb9a20a72ac4e0fdb50dae135ba5e77880518e742077ced47eb1499e29a443c"},
-    {file = "cffi-1.15.0-cp310-cp310-manylinux_2_17_ppc64le.manylinux2014_ppc64le.whl", hash = "sha256:a5263e363c27b653a90078143adb3d076c1a748ec9ecc78ea2fb916f9b861962"},
-    {file = "cffi-1.15.0-cp310-cp310-manylinux_2_17_s390x.manylinux2014_s390x.whl", hash = "sha256:f54a64f8b0c8ff0b64d18aa76675262e1700f3995182267998c31ae974fbc382"},
-    {file = "cffi-1.15.0-cp310-cp310-win32.whl", hash = "sha256:c21c9e3896c23007803a875460fb786118f0cdd4434359577ea25eb556e34c55"},
-    {file = "cffi-1.15.0-cp310-cp310-win_amd64.whl", hash = "sha256:5e069f72d497312b24fcc02073d70cb989045d1c91cbd53979366077959933e0"},
-    {file = "cffi-1.15.0-cp36-cp36m-macosx_10_9_x86_64.whl", hash = "sha256:64d4ec9f448dfe041705426000cc13e34e6e5bb13736e9fd62e34a0b0c41566e"},
-    {file = "cffi-1.15.0-cp36-cp36m-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:2756c88cbb94231c7a147402476be2c4df2f6078099a6f4a480d239a8817ae39"},
-    {file = "cffi-1.15.0-cp36-cp36m-manylinux_2_17_ppc64le.manylinux2014_ppc64le.whl", hash = "sha256:3b96a311ac60a3f6be21d2572e46ce67f09abcf4d09344c49274eb9e0bf345fc"},
-    {file = "cffi-1.15.0-cp36-cp36m-manylinux_2_17_s390x.manylinux2014_s390x.whl", hash = "sha256:75e4024375654472cc27e91cbe9eaa08567f7fbdf822638be2814ce059f58032"},
-    {file = "cffi-1.15.0-cp36-cp36m-manylinux_2_5_i686.manylinux1_i686.whl", hash = "sha256:59888172256cac5629e60e72e86598027aca6bf01fa2465bdb676d37636573e8"},
-    {file = "cffi-1.15.0-cp36-cp36m-manylinux_2_5_x86_64.manylinux1_x86_64.whl", hash = "sha256:27c219baf94952ae9d50ec19651a687b826792055353d07648a5695413e0c605"},
-    {file = "cffi-1.15.0-cp36-cp36m-win32.whl", hash = "sha256:4958391dbd6249d7ad855b9ca88fae690783a6be9e86df65865058ed81fc860e"},
-    {file = "cffi-1.15.0-cp36-cp36m-win_amd64.whl", hash = "sha256:f6f824dc3bce0edab5f427efcfb1d63ee75b6fcb7282900ccaf925be84efb0fc"},
-    {file = "cffi-1.15.0-cp37-cp37m-macosx_10_9_x86_64.whl", hash = "sha256:06c48159c1abed75c2e721b1715c379fa3200c7784271b3c46df01383b593636"},
-    {file = "cffi-1.15.0-cp37-cp37m-manylinux_2_12_i686.manylinux2010_i686.whl", hash = "sha256:c2051981a968d7de9dd2d7b87bcb9c939c74a34626a6e2f8181455dd49ed69e4"},
-    {file = "cffi-1.15.0-cp37-cp37m-manylinux_2_12_x86_64.manylinux2010_x86_64.whl", hash = "sha256:fd8a250edc26254fe5b33be00402e6d287f562b6a5b2152dec302fa15bb3e997"},
-    {file = "cffi-1.15.0-cp37-cp37m-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:91d77d2a782be4274da750752bb1650a97bfd8f291022b379bb8e01c66b4e96b"},
-    {file = "cffi-1.15.0-cp37-cp37m-manylinux_2_17_ppc64le.manylinux2014_ppc64le.whl", hash = "sha256:45db3a33139e9c8f7c09234b5784a5e33d31fd6907800b316decad50af323ff2"},
-    {file = "cffi-1.15.0-cp37-cp37m-manylinux_2_17_s390x.manylinux2014_s390x.whl", hash = "sha256:263cc3d821c4ab2213cbe8cd8b355a7f72a8324577dc865ef98487c1aeee2bc7"},
-    {file = "cffi-1.15.0-cp37-cp37m-win32.whl", hash = "sha256:17771976e82e9f94976180f76468546834d22a7cc404b17c22df2a2c81db0c66"},
-    {file = "cffi-1.15.0-cp37-cp37m-win_amd64.whl", hash = "sha256:3415c89f9204ee60cd09b235810be700e993e343a408693e80ce7f6a40108029"},
-    {file = "cffi-1.15.0-cp38-cp38-macosx_10_9_x86_64.whl", hash = "sha256:4238e6dab5d6a8ba812de994bbb0a79bddbdf80994e4ce802b6f6f3142fcc880"},
-    {file = "cffi-1.15.0-cp38-cp38-manylinux_2_12_i686.manylinux2010_i686.whl", hash = "sha256:0808014eb713677ec1292301ea4c81ad277b6cdf2fdd90fd540af98c0b101d20"},
-    {file = "cffi-1.15.0-cp38-cp38-manylinux_2_12_x86_64.manylinux2010_x86_64.whl", hash = "sha256:57e9ac9ccc3101fac9d6014fba037473e4358ef4e89f8e181f8951a2c0162024"},
-    {file = "cffi-1.15.0-cp38-cp38-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:8b6c2ea03845c9f501ed1313e78de148cd3f6cad741a75d43a29b43da27f2e1e"},
-    {file = "cffi-1.15.0-cp38-cp38-manylinux_2_17_ppc64le.manylinux2014_ppc64le.whl", hash = "sha256:10dffb601ccfb65262a27233ac273d552ddc4d8ae1bf93b21c94b8511bffe728"},
-    {file = "cffi-1.15.0-cp38-cp38-manylinux_2_17_s390x.manylinux2014_s390x.whl", hash = "sha256:786902fb9ba7433aae840e0ed609f45c7bcd4e225ebb9c753aa39725bb3e6ad6"},
-    {file = "cffi-1.15.0-cp38-cp38-win32.whl", hash = "sha256:da5db4e883f1ce37f55c667e5c0de439df76ac4cb55964655906306918e7363c"},
-    {file = "cffi-1.15.0-cp38-cp38-win_amd64.whl", hash = "sha256:181dee03b1170ff1969489acf1c26533710231c58f95534e3edac87fff06c443"},
-    {file = "cffi-1.15.0-cp39-cp39-macosx_10_9_x86_64.whl", hash = "sha256:45e8636704eacc432a206ac7345a5d3d2c62d95a507ec70d62f23cd91770482a"},
-    {file = "cffi-1.15.0-cp39-cp39-macosx_11_0_arm64.whl", hash = "sha256:31fb708d9d7c3f49a60f04cf5b119aeefe5644daba1cd2a0fe389b674fd1de37"},
-    {file = "cffi-1.15.0-cp39-cp39-manylinux_2_12_i686.manylinux2010_i686.whl", hash = "sha256:6dc2737a3674b3e344847c8686cf29e500584ccad76204efea14f451d4cc669a"},
-    {file = "cffi-1.15.0-cp39-cp39-manylinux_2_12_x86_64.manylinux2010_x86_64.whl", hash = "sha256:74fdfdbfdc48d3f47148976f49fab3251e550a8720bebc99bf1483f5bfb5db3e"},
-    {file = "cffi-1.15.0-cp39-cp39-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:ffaa5c925128e29efbde7301d8ecaf35c8c60ffbcd6a1ffd3a552177c8e5e796"},
-    {file = "cffi-1.15.0-cp39-cp39-manylinux_2_17_ppc64le.manylinux2014_ppc64le.whl", hash = "sha256:3f7d084648d77af029acb79a0ff49a0ad7e9d09057a9bf46596dac9514dc07df"},
-    {file = "cffi-1.15.0-cp39-cp39-manylinux_2_17_s390x.manylinux2014_s390x.whl", hash = "sha256:ef1f279350da2c586a69d32fc8733092fd32cc8ac95139a00377841f59a3f8d8"},
-    {file = "cffi-1.15.0-cp39-cp39-win32.whl", hash = "sha256:2a23af14f408d53d5e6cd4e3d9a24ff9e05906ad574822a10563efcef137979a"},
-    {file = "cffi-1.15.0-cp39-cp39-win_amd64.whl", hash = "sha256:3773c4d81e6e818df2efbc7dd77325ca0dcb688116050fb2b3011218eda36139"},
-    {file = "cffi-1.15.0.tar.gz", hash = "sha256:920f0d66a896c2d99f0adbb391f990a84091179542c205fa53ce5787aff87954"},
-]
+cffi = []
 chardet = [
     {file = "chardet-4.0.0-py2.py3-none-any.whl", hash = "sha256:f864054d66fd9118f2e67044ac8981a54775ec5b67aed0441892edb553d21da5"},
     {file = "chardet-4.0.0.tar.gz", hash = "sha256:0d6f53a15db4120f2b08c94f11e7d93d2c911ee118b6b30a04ec3ee8310179fa"},
@@ -405,6 +2137,7 @@ chardet = [
     {file = "discord.py-1.7.3-py3-none-any.whl", hash = "sha256:c6f64db136de0e18e090f6752ea68bdd4ab0a61b82dfe7acecefa22d6477bb0c"},
     {file = "discord.py-1.7.3.tar.gz", hash = "sha256:462cd0fe307aef8b29cbfa8dd613e548ae4b2cb581d46da9ac0d46fb6ea19408"},
 ]
+docutils = []
 idna = [
     {file = "idna-3.3-py3-none-any.whl", hash = "sha256:84d9dd047ffa80596e0f246e2eab0b391788b0503584e8945f2368256d2735ff"},
     {file = "idna-3.3.tar.gz", hash = "sha256:9d643ff0a55b762d5cdb124b8eaa99c66322e2157b69160bc32796e824360e6d"},
@@ -470,6 +2203,7 @@ multidict = [
     {file = "multidict-6.0.2-cp39-cp39-win_amd64.whl", hash = "sha256:4bae31803d708f6f15fd98be6a6ac0b6958fcf68fda3c77a048a4f9073704aae"},
     {file = "multidict-6.0.2.tar.gz", hash = "sha256:5ff3bd75f38e4c43f1f470f2df7a4d430b821c4ce22be384e1459cb57d6bb013"},
 ]
+multipart = []
 persistent = [
     {file = "persistent-4.9.0-cp27-cp27m-macosx_10_14_x86_64.whl", hash = "sha256:6ffc7e720cf124a45b890e655d80b644f8c12b1fb97da7df78c5278ef28b2d8b"},
     {file = "persistent-4.9.0-cp27-cp27m-win32.whl", hash = "sha256:9ec24d5a704fee4bd5aca12bb0f17e05f1386bd8d3903657a89c50214afb547e"},
@@ -516,6 +2250,9 @@ python-dotenv = [
     {file = "python-dotenv-0.20.0.tar.gz", hash = "sha256:b7e3b04a59693c42c36f9ab1cc2acc46fa5df8c78e178fc33a8d4cd05c8d498f"},
     {file = "python_dotenv-0.20.0-py3-none-any.whl", hash = "sha256:d92a187be61fe482e4fd675b6d52200e7be63a12b724abbf931a40ce4fa92938"},
 ]
+python-gettext = []
+pytz = []
+restrictedpython = []
 six = [
     {file = "six-1.16.0-py2.py3-none-any.whl", hash = "sha256:8abb2f1d86890a2dfb989f9a77cfcfd3e47c2a354b01111771326f8aa26e0254"},
     {file = "six-1.16.0.tar.gz", hash = "sha256:1e61c37477a1626458e36f7b1d82aa5c9b094fa4802892072e49de9c60c4c926"},
@@ -524,84 +2261,8 @@ transaction = [
     {file = "transaction-3.0.1-py2.py3-none-any.whl", hash = "sha256:2329a6e6b82d1d8d4de9267ea6ee790532c375e5911d3c7633a234e94a4a0a9e"},
     {file = "transaction-3.0.1.tar.gz", hash = "sha256:0c15ef0b7ff3518357ceea75722a30d974c3f85e11aa5cec5d5a2b6a40cfcf68"},
 ]
-typing-extensions = [
-    {file = "typing_extensions-4.2.0-py3-none-any.whl", hash = "sha256:6657594ee297170d19f67d55c05852a874e7eb634f4f753dbd667855e07c1708"},
-    {file = "typing_extensions-4.2.0.tar.gz", hash = "sha256:f1c24655a0da0d1b67f07e17a5e6b2a105894e6824b92096378bb3668ef02376"},
-]
-yarl = [
-    {file = "yarl-1.7.2-cp310-cp310-macosx_10_9_universal2.whl", hash = "sha256:f2a8508f7350512434e41065684076f640ecce176d262a7d54f0da41d99c5a95"},
-    {file = "yarl-1.7.2-cp310-cp310-macosx_10_9_x86_64.whl", hash = "sha256:da6df107b9ccfe52d3a48165e48d72db0eca3e3029b5b8cb4fe6ee3cb870ba8b"},
-    {file = "yarl-1.7.2-cp310-cp310-macosx_11_0_arm64.whl", hash = "sha256:a1d0894f238763717bdcfea74558c94e3bc34aeacd3351d769460c1a586a8b05"},
-    {file = "yarl-1.7.2-cp310-cp310-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:dfe4b95b7e00c6635a72e2d00b478e8a28bfb122dc76349a06e20792eb53a523"},
-    {file = "yarl-1.7.2-cp310-cp310-manylinux_2_17_ppc64le.manylinux2014_ppc64le.whl", hash = "sha256:c145ab54702334c42237a6c6c4cc08703b6aa9b94e2f227ceb3d477d20c36c63"},
-    {file = "yarl-1.7.2-cp310-cp310-manylinux_2_17_s390x.manylinux2014_s390x.whl", hash = "sha256:1ca56f002eaf7998b5fcf73b2421790da9d2586331805f38acd9997743114e98"},
-    {file = "yarl-1.7.2-cp310-cp310-manylinux_2_5_i686.manylinux1_i686.manylinux_2_12_i686.manylinux2010_i686.whl", hash = "sha256:1d3d5ad8ea96bd6d643d80c7b8d5977b4e2fb1bab6c9da7322616fd26203d125"},
-    {file = "yarl-1.7.2-cp310-cp310-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_12_x86_64.manylinux2010_x86_64.whl", hash = "sha256:167ab7f64e409e9bdd99333fe8c67b5574a1f0495dcfd905bc7454e766729b9e"},
-    {file = "yarl-1.7.2-cp310-cp310-musllinux_1_1_aarch64.whl", hash = "sha256:95a1873b6c0dd1c437fb3bb4a4aaa699a48c218ac7ca1e74b0bee0ab16c7d60d"},
-    {file = "yarl-1.7.2-cp310-cp310-musllinux_1_1_i686.whl", hash = "sha256:6152224d0a1eb254f97df3997d79dadd8bb2c1a02ef283dbb34b97d4f8492d23"},
-    {file = "yarl-1.7.2-cp310-cp310-musllinux_1_1_ppc64le.whl", hash = "sha256:5bb7d54b8f61ba6eee541fba4b83d22b8a046b4ef4d8eb7f15a7e35db2e1e245"},
-    {file = "yarl-1.7.2-cp310-cp310-musllinux_1_1_s390x.whl", hash = "sha256:9c1f083e7e71b2dd01f7cd7434a5f88c15213194df38bc29b388ccdf1492b739"},
-    {file = "yarl-1.7.2-cp310-cp310-musllinux_1_1_x86_64.whl", hash = "sha256:f44477ae29025d8ea87ec308539f95963ffdc31a82f42ca9deecf2d505242e72"},
-    {file = "yarl-1.7.2-cp310-cp310-win32.whl", hash = "sha256:cff3ba513db55cc6a35076f32c4cdc27032bd075c9faef31fec749e64b45d26c"},
-    {file = "yarl-1.7.2-cp310-cp310-win_amd64.whl", hash = "sha256:c9c6d927e098c2d360695f2e9d38870b2e92e0919be07dbe339aefa32a090265"},
-    {file = "yarl-1.7.2-cp36-cp36m-macosx_10_9_x86_64.whl", hash = "sha256:9b4c77d92d56a4c5027572752aa35082e40c561eec776048330d2907aead891d"},
-    {file = "yarl-1.7.2-cp36-cp36m-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:c01a89a44bb672c38f42b49cdb0ad667b116d731b3f4c896f72302ff77d71656"},
-    {file = "yarl-1.7.2-cp36-cp36m-manylinux_2_17_ppc64le.manylinux2014_ppc64le.whl", hash = "sha256:c19324a1c5399b602f3b6e7db9478e5b1adf5cf58901996fc973fe4fccd73eed"},
-    {file = "yarl-1.7.2-cp36-cp36m-manylinux_2_17_s390x.manylinux2014_s390x.whl", hash = "sha256:3abddf0b8e41445426d29f955b24aeecc83fa1072be1be4e0d194134a7d9baee"},
-    {file = "yarl-1.7.2-cp36-cp36m-manylinux_2_5_i686.manylinux1_i686.manylinux_2_12_i686.manylinux2010_i686.whl", hash = "sha256:6a1a9fe17621af43e9b9fcea8bd088ba682c8192d744b386ee3c47b56eaabb2c"},
-    {file = "yarl-1.7.2-cp36-cp36m-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_12_x86_64.manylinux2010_x86_64.whl", hash = "sha256:8b0915ee85150963a9504c10de4e4729ae700af11df0dc5550e6587ed7891e92"},
-    {file = "yarl-1.7.2-cp36-cp36m-musllinux_1_1_aarch64.whl", hash = "sha256:29e0656d5497733dcddc21797da5a2ab990c0cb9719f1f969e58a4abac66234d"},
-    {file = "yarl-1.7.2-cp36-cp36m-musllinux_1_1_i686.whl", hash = "sha256:bf19725fec28452474d9887a128e98dd67eee7b7d52e932e6949c532d820dc3b"},
-    {file = "yarl-1.7.2-cp36-cp36m-musllinux_1_1_ppc64le.whl", hash = "sha256:d6f3d62e16c10e88d2168ba2d065aa374e3c538998ed04996cd373ff2036d64c"},
-    {file = "yarl-1.7.2-cp36-cp36m-musllinux_1_1_s390x.whl", hash = "sha256:ac10bbac36cd89eac19f4e51c032ba6b412b3892b685076f4acd2de18ca990aa"},
-    {file = "yarl-1.7.2-cp36-cp36m-musllinux_1_1_x86_64.whl", hash = "sha256:aa32aaa97d8b2ed4e54dc65d241a0da1c627454950f7d7b1f95b13985afd6c5d"},
-    {file = "yarl-1.7.2-cp36-cp36m-win32.whl", hash = "sha256:87f6e082bce21464857ba58b569370e7b547d239ca22248be68ea5d6b51464a1"},
-    {file = "yarl-1.7.2-cp36-cp36m-win_amd64.whl", hash = "sha256:ac35ccde589ab6a1870a484ed136d49a26bcd06b6a1c6397b1967ca13ceb3913"},
-    {file = "yarl-1.7.2-cp37-cp37m-macosx_10_9_x86_64.whl", hash = "sha256:a467a431a0817a292121c13cbe637348b546e6ef47ca14a790aa2fa8cc93df63"},
-    {file = "yarl-1.7.2-cp37-cp37m-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:6ab0c3274d0a846840bf6c27d2c60ba771a12e4d7586bf550eefc2df0b56b3b4"},
-    {file = "yarl-1.7.2-cp37-cp37m-manylinux_2_17_ppc64le.manylinux2014_ppc64le.whl", hash = "sha256:d260d4dc495c05d6600264a197d9d6f7fc9347f21d2594926202fd08cf89a8ba"},
-    {file = "yarl-1.7.2-cp37-cp37m-manylinux_2_17_s390x.manylinux2014_s390x.whl", hash = "sha256:fc4dd8b01a8112809e6b636b00f487846956402834a7fd59d46d4f4267181c41"},
-    {file = "yarl-1.7.2-cp37-cp37m-manylinux_2_5_i686.manylinux1_i686.manylinux_2_12_i686.manylinux2010_i686.whl", hash = "sha256:c1164a2eac148d85bbdd23e07dfcc930f2e633220f3eb3c3e2a25f6148c2819e"},
-    {file = "yarl-1.7.2-cp37-cp37m-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_12_x86_64.manylinux2010_x86_64.whl", hash = "sha256:67e94028817defe5e705079b10a8438b8cb56e7115fa01640e9c0bb3edf67332"},
-    {file = "yarl-1.7.2-cp37-cp37m-musllinux_1_1_aarch64.whl", hash = "sha256:89ccbf58e6a0ab89d487c92a490cb5660d06c3a47ca08872859672f9c511fc52"},
-    {file = "yarl-1.7.2-cp37-cp37m-musllinux_1_1_i686.whl", hash = "sha256:8cce6f9fa3df25f55521fbb5c7e4a736683148bcc0c75b21863789e5185f9185"},
-    {file = "yarl-1.7.2-cp37-cp37m-musllinux_1_1_ppc64le.whl", hash = "sha256:211fcd65c58bf250fb994b53bc45a442ddc9f441f6fec53e65de8cba48ded986"},
-    {file = "yarl-1.7.2-cp37-cp37m-musllinux_1_1_s390x.whl", hash = "sha256:c10ea1e80a697cf7d80d1ed414b5cb8f1eec07d618f54637067ae3c0334133c4"},
-    {file = "yarl-1.7.2-cp37-cp37m-musllinux_1_1_x86_64.whl", hash = "sha256:52690eb521d690ab041c3919666bea13ab9fbff80d615ec16fa81a297131276b"},
-    {file = "yarl-1.7.2-cp37-cp37m-win32.whl", hash = "sha256:695ba021a9e04418507fa930d5f0704edbce47076bdcfeeaba1c83683e5649d1"},
-    {file = "yarl-1.7.2-cp37-cp37m-win_amd64.whl", hash = "sha256:c17965ff3706beedafd458c452bf15bac693ecd146a60a06a214614dc097a271"},
-    {file = "yarl-1.7.2-cp38-cp38-macosx_10_9_universal2.whl", hash = "sha256:fce78593346c014d0d986b7ebc80d782b7f5e19843ca798ed62f8e3ba8728576"},
-    {file = "yarl-1.7.2-cp38-cp38-macosx_10_9_x86_64.whl", hash = "sha256:c2a1ac41a6aa980db03d098a5531f13985edcb451bcd9d00670b03129922cd0d"},
-    {file = "yarl-1.7.2-cp38-cp38-macosx_11_0_arm64.whl", hash = "sha256:39d5493c5ecd75c8093fa7700a2fb5c94fe28c839c8e40144b7ab7ccba6938c8"},
-    {file = "yarl-1.7.2-cp38-cp38-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:1eb6480ef366d75b54c68164094a6a560c247370a68c02dddb11f20c4c6d3c9d"},
-    {file = "yarl-1.7.2-cp38-cp38-manylinux_2_17_ppc64le.manylinux2014_ppc64le.whl", hash = "sha256:5ba63585a89c9885f18331a55d25fe81dc2d82b71311ff8bd378fc8004202ff6"},
-    {file = "yarl-1.7.2-cp38-cp38-manylinux_2_17_s390x.manylinux2014_s390x.whl", hash = "sha256:e39378894ee6ae9f555ae2de332d513a5763276a9265f8e7cbaeb1b1ee74623a"},
-    {file = "yarl-1.7.2-cp38-cp38-manylinux_2_5_i686.manylinux1_i686.manylinux_2_12_i686.manylinux2010_i686.whl", hash = "sha256:c0910c6b6c31359d2f6184828888c983d54d09d581a4a23547a35f1d0b9484b1"},
-    {file = "yarl-1.7.2-cp38-cp38-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_12_x86_64.manylinux2010_x86_64.whl", hash = "sha256:6feca8b6bfb9eef6ee057628e71e1734caf520a907b6ec0d62839e8293e945c0"},
-    {file = "yarl-1.7.2-cp38-cp38-musllinux_1_1_aarch64.whl", hash = "sha256:8300401dc88cad23f5b4e4c1226f44a5aa696436a4026e456fe0e5d2f7f486e6"},
-    {file = "yarl-1.7.2-cp38-cp38-musllinux_1_1_i686.whl", hash = "sha256:788713c2896f426a4e166b11f4ec538b5736294ebf7d5f654ae445fd44270832"},
-    {file = "yarl-1.7.2-cp38-cp38-musllinux_1_1_ppc64le.whl", hash = "sha256:fd547ec596d90c8676e369dd8a581a21227fe9b4ad37d0dc7feb4ccf544c2d59"},
-    {file = "yarl-1.7.2-cp38-cp38-musllinux_1_1_s390x.whl", hash = "sha256:737e401cd0c493f7e3dd4db72aca11cfe069531c9761b8ea474926936b3c57c8"},
-    {file = "yarl-1.7.2-cp38-cp38-musllinux_1_1_x86_64.whl", hash = "sha256:baf81561f2972fb895e7844882898bda1eef4b07b5b385bcd308d2098f1a767b"},
-    {file = "yarl-1.7.2-cp38-cp38-win32.whl", hash = "sha256:ede3b46cdb719c794427dcce9d8beb4abe8b9aa1e97526cc20de9bd6583ad1ef"},
-    {file = "yarl-1.7.2-cp38-cp38-win_amd64.whl", hash = "sha256:cc8b7a7254c0fc3187d43d6cb54b5032d2365efd1df0cd1749c0c4df5f0ad45f"},
-    {file = "yarl-1.7.2-cp39-cp39-macosx_10_9_universal2.whl", hash = "sha256:580c1f15500e137a8c37053e4cbf6058944d4c114701fa59944607505c2fe3a0"},
-    {file = "yarl-1.7.2-cp39-cp39-macosx_10_9_x86_64.whl", hash = "sha256:3ec1d9a0d7780416e657f1e405ba35ec1ba453a4f1511eb8b9fbab81cb8b3ce1"},
-    {file = "yarl-1.7.2-cp39-cp39-macosx_11_0_arm64.whl", hash = "sha256:3bf8cfe8856708ede6a73907bf0501f2dc4e104085e070a41f5d88e7faf237f3"},
-    {file = "yarl-1.7.2-cp39-cp39-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:1be4bbb3d27a4e9aa5f3df2ab61e3701ce8fcbd3e9846dbce7c033a7e8136746"},
-    {file = "yarl-1.7.2-cp39-cp39-manylinux_2_17_ppc64le.manylinux2014_ppc64le.whl", hash = "sha256:534b047277a9a19d858cde163aba93f3e1677d5acd92f7d10ace419d478540de"},
-    {file = "yarl-1.7.2-cp39-cp39-manylinux_2_17_s390x.manylinux2014_s390x.whl", hash = "sha256:c6ddcd80d79c96eb19c354d9dca95291589c5954099836b7c8d29278a7ec0bda"},
-    {file = "yarl-1.7.2-cp39-cp39-manylinux_2_5_i686.manylinux1_i686.manylinux_2_12_i686.manylinux2010_i686.whl", hash = "sha256:9bfcd43c65fbb339dc7086b5315750efa42a34eefad0256ba114cd8ad3896f4b"},
-    {file = "yarl-1.7.2-cp39-cp39-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_12_x86_64.manylinux2010_x86_64.whl", hash = "sha256:f64394bd7ceef1237cc604b5a89bf748c95982a84bcd3c4bbeb40f685c810794"},
-    {file = "yarl-1.7.2-cp39-cp39-musllinux_1_1_aarch64.whl", hash = "sha256:044daf3012e43d4b3538562da94a88fb12a6490652dbc29fb19adfa02cf72eac"},
-    {file = "yarl-1.7.2-cp39-cp39-musllinux_1_1_i686.whl", hash = "sha256:368bcf400247318382cc150aaa632582d0780b28ee6053cd80268c7e72796dec"},
-    {file = "yarl-1.7.2-cp39-cp39-musllinux_1_1_ppc64le.whl", hash = "sha256:bab827163113177aee910adb1f48ff7af31ee0289f434f7e22d10baf624a6dfe"},
-    {file = "yarl-1.7.2-cp39-cp39-musllinux_1_1_s390x.whl", hash = "sha256:0cba38120db72123db7c58322fa69e3c0efa933040ffb586c3a87c063ec7cae8"},
-    {file = "yarl-1.7.2-cp39-cp39-musllinux_1_1_x86_64.whl", hash = "sha256:59218fef177296451b23214c91ea3aba7858b4ae3306dde120224cfe0f7a6ee8"},
-    {file = "yarl-1.7.2-cp39-cp39-win32.whl", hash = "sha256:1edc172dcca3f11b38a9d5c7505c83c1913c0addc99cd28e993efeaafdfaa18d"},
-    {file = "yarl-1.7.2-cp39-cp39-win_amd64.whl", hash = "sha256:797c2c412b04403d2da075fb93c123df35239cd7b4cc4e0cd9e5839b73f52c58"},
-    {file = "yarl-1.7.2.tar.gz", hash = "sha256:45399b46d60c253327a460e99856752009fcee5f5d3c80b2f7c0cae1c38d56dd"},
-]
+typing-extensions = []
+yarl = []
 "zc.lockfile" = [
     {file = "zc.lockfile-2.0-py2.py3-none-any.whl", hash = "sha256:cc33599b549f0c8a248cb72f3bf32d77712de1ff7ee8814312eb6456b42c015f"},
     {file = "zc.lockfile-2.0.tar.gz", hash = "sha256:307ad78227e48be260e64896ec8886edc7eae22d8ec53e4d528ab5537a83203b"},
@@ -610,10 +2271,13 @@ zconfig = [
     {file = "ZConfig-3.6.0-py2.py3-none-any.whl", hash = "sha256:d36cebe34b49fb2a9123472c8a22dbbf25837f33d31300d391403810cb1557d7"},
     {file = "ZConfig-3.6.0.tar.gz", hash = "sha256:a28e95a0ae335795747eccad35b2cb708f37d44c7f325e2acb201e98330b16e5"},
 ]
+zdaemon = []
+zeo = []
 zodb = [
     {file = "ZODB-5.7.0-py2.py3-none-any.whl", hash = "sha256:dc4cb46a5e30753c2e57cc20b1411b4356b3041fba9683531cedfdb1e922ab4a"},
     {file = "ZODB-5.7.0.tar.gz", hash = "sha256:fa40bbc05ecda1ec2435cd0c6dd02a13b7698460558a4604366f6a0a68401cd3"},
 ]
+zodbbrowser = []
 zodbpickle = [
     {file = "zodbpickle-2.3-cp27-cp27m-macosx_10_14_x86_64.whl", hash = "sha256:d4b780bd44f868a19e8cf8051356cd4e41f70eb01f312797a773a425dbdf072f"},
     {file = "zodbpickle-2.3-cp27-cp27m-win32.whl", hash = "sha256:f3f0ce06be972f501ba7be7d8303c7216eded882b41d9659839f7a28c5399493"},
@@ -652,6 +2316,64 @@ zodbpickle = [
     {file = "zodbpickle-2.3-cp39-cp39-win_amd64.whl", hash = "sha256:568bbca7cd75e7fa0764f991618cf95423edcf111948649e8b53f16c5b68cf1d"},
     {file = "zodbpickle-2.3.tar.gz", hash = "sha256:e4cb5c719705e8bb1e8eee4aa24e2071a3094ecf2783d87407ab822f166da3a2"},
 ]
+"zope.annotation" = []
+"zope.app.applicationcontrol" = []
+"zope.app.appsetup" = []
+"zope.app.authentication" = []
+"zope.app.basicskin" = []
+"zope.app.broken" = []
+"zope.app.component" = []
+"zope.app.container" = []
+"zope.app.content" = []
+"zope.app.dependable" = []
+"zope.app.error" = []
+"zope.app.exception" = []
+"zope.app.folder" = []
+"zope.app.form" = []
+"zope.app.generations" = []
+"zope.app.http" = []
+"zope.app.i18n" = []
+"zope.app.locales" = []
+"zope.app.localpermission" = []
+"zope.app.pagetemplate" = []
+"zope.app.principalannotation" = []
+"zope.app.publication" = []
+"zope.app.publisher" = []
+"zope.app.rotterdam" = []
+"zope.app.schema" = []
+"zope.app.security" = []
+"zope.app.server" = []
+"zope.app.session" = []
+"zope.app.wsgi" = []
+"zope.app.zcmlfiles" = []
+"zope.applicationcontrol" = []
+"zope.authentication" = []
+"zope.browser" = []
+"zope.browsermenu" = []
+"zope.browserpage" = []
+"zope.browserresource" = []
+"zope.cachedescriptors" = []
+"zope.component" = []
+"zope.componentvocabulary" = []
+"zope.configuration" = []
+"zope.container" = []
+"zope.contenttype" = []
+"zope.copy" = []
+"zope.copypastemove" = []
+"zope.datetime" = []
+"zope.deferredimport" = []
+"zope.deprecation" = []
+"zope.dottedname" = []
+"zope.dublincore" = []
+"zope.error" = []
+"zope.event" = []
+"zope.exceptions" = []
+"zope.filerepresentation" = []
+"zope.formlib" = []
+"zope.generations" = []
+"zope.hookable" = []
+"zope.i18n" = []
+"zope.i18nmessageid" = []
 "zope.interface" = [
     {file = "zope.interface-5.4.0-cp27-cp27m-macosx_10_14_x86_64.whl", hash = "sha256:7df1e1c05304f26faa49fa752a8c690126cf98b40b91d54e6e9cc3b7d6ffe8b7"},
     {file = "zope.interface-5.4.0-cp27-cp27m-manylinux1_i686.whl", hash = "sha256:2c98384b254b37ce50eddd55db8d381a5c53b4c10ee66e1e7fe749824f894021"},
@@ -705,3 +2427,27 @@ zodbpickle = [
     {file = "zope.interface-5.4.0-cp39-cp39-win_amd64.whl", hash = "sha256:0cba8477e300d64a11a9789ed40ee8932b59f9ee05f85276dbb4b59acee5dd09"},
     {file = "zope.interface-5.4.0.tar.gz", hash = "sha256:5dba5f530fec3f0988d83b78cc591b58c0b6eb8431a85edd1569a0539a8a5a0e"},
 ]
+"zope.lifecycleevent" = []
+"zope.location" = []
+"zope.login" = []
+"zope.minmax" = []
+"zope.pagetemplate" = []
+"zope.password" = []
+"zope.pluggableauth" = []
+"zope.principalannotation" = []
+"zope.principalregistry" = []
+"zope.processlifetime" = []
+"zope.proxy" = []
+"zope.ptresource" = []
+"zope.publisher" = []
+"zope.schema" = []
+"zope.security" = []
+"zope.securitypolicy" = []
+"zope.server" = []
+"zope.session" = []
+"zope.site" = []
+"zope.size" = []
+"zope.tal" = []
+"zope.tales" = []
+"zope.traversing" = []
+"zope.vocabularyregistry" = []

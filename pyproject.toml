@@ -11,6 +11,7 @@ ZODB = "^5.7.0"
 python-dotenv = "^0.20.0"
 
 [tool.poetry.dev-dependencies]
+zodbbrowser = "^0.17.1"
 
 [tool.poetry.scripts]
 bot = "highroler:main"
